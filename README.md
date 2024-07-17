@@ -25,6 +25,12 @@ This repository contains a simple dashboard application built with Django and HT
 - avoid boilerplate code
 - Easy to extend and customize
 
+### Screenshots
+
+![screenshot1](img/screenshot1.jpg)
+
+![screenshot2](img/screenshot1.jpg)
+
 ## Installation
 
 ### Prerequisites
