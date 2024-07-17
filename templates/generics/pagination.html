@@ -1,0 +1,42 @@
+{% load custom_tags %}
+
+<div class='row'>
+    <div class="col text-end mt-auto">
+        <div class="mb-3 ">
+            <div class="text-muted" style="padding-bottom: 2px;">
+            {{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }}
+            </div>
+        </div>
+    </div>
+    <div class="col-auto mt-auto">
+        <div class="mb-3 ">
+            {% if page_obj.has_previous %}
+            <button type="button" class="btn btn-sm btn-secondary-custom" hx-get="{% url list_url %}?page={{ page_obj.previous_page_number }}{% if filterset.form.data %}&{% remove_page_param filterset.form.data %}{% endif %}" hx-target="#object-list">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </button>
+            {% else %}
+            <button type="button" class="btn btn-sm btn-secondary-custom" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </button>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <button type="button" class="btn btn-sm btn-secondary-custom" hx-get="{% url list_url %}?page={{ page_obj.next_page_number }}{% if filterset.form.data %}&{% remove_page_param filterset.form.data %}{% endif %}" hx-target="#object-list" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </button>
+            {% else %}
+            <button type="button" class="btn btn-sm btn-secondary-custom" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+

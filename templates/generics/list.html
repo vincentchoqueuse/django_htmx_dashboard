@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block header %}
+    List of {{verbose_name_plural}} ({{total_count}})
+{% endblock %}
+
+{% block toolbar_button %}
+    <a href="#" class="btn btn-custom" hx-get="{% url create_url %}" hx-target="#modal-content">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+    </svg>
+    Add
+    </a>
+{% endblock %}
+  
+{% block inline_description %}
+  {% if filterset %}
+    <form class="row" id="filter-form" method="get" hx-get="{% url list_url %}" hx-trigger="listChanged from:body"  hx-target="#object-list" >
+        {% for field in filterset.form %}
+        <div class="col-auto">
+            <div class="form-floating">
+                {{ field | as_crispy_field}}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-auto mt-auto">
+            <div class="mb-3">
+                <button class="btn btn-secondary-custom" type="submit">Filter</button>
+            </div>
+        </div>
+    </form>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div id="object-list" class="pt-4" >
+    {% include partial_template %}
+    </div>
+{% endblock %}
+
+

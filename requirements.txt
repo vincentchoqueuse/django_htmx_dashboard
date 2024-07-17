@@ -1,0 +1,6 @@
+Django>=5.0.7
+django-crispy-forms>=2.2
+django-filter>=24.2
+markdown>=3.6
+crispy-bootstrap5>=2024.2
+django-htmx>=1.18.0

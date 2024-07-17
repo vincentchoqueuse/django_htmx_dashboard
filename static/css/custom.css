@@ -1,0 +1,90 @@
+.sidebar-custom{
+    background-color: rgb(249, 249, 249);
+}
+
+.sidebar-title{
+    font-weight: 600;
+    font-size: .75rem;
+    line-height: 1rem;
+    color: rgb(130, 130, 130) !important;
+    text-transform: uppercase;
+}
+
+.sidebar-nav{
+    font-size: 0.9rem;
+    color: gb(13, 13, 13);
+}
+
+.nav-link-custom{
+    font-size: 0.9rem;
+    color: rgb(13, 13, 13);
+}
+
+.nav-link-custom:hover{
+    color: rgb(13, 13, 13);
+    background-color: rgb(236, 236, 236) !important;
+}
+
+.link-active{
+    color: rgb(13, 13, 13);
+    background-color: rgb(236, 236, 236) !important;
+}
+
+.link-dark:active {
+    background-color: rgba(33, 37, 41, 0.25);
+}
+
+.form-floating label{
+    font-size: 0.75rem;
+}
+
+.btn-custom {
+    background-color: rgb(233, 96, 124);
+    color: white;
+}
+.btn-custom:hover {
+    background-color: rgb(233, 96, 124);
+    color: white;
+}
+
+.btn-secondary-custom {
+    background-color: white;
+    color: rgba(33, 37, 41, 0.75);
+    border-color: rgb(222, 226, 230);
+}
+.btn-secondary-custom:hover, .btn-secondary-custom.show, .btn-secondary-custom.active {
+    background-color: rgba(222, 226, 230, 0.5);
+    color: rgba(33, 37, 41, 1);
+    border-color: rgb(222, 226, 230, 0.85) !important;
+}
+
+.btn-secondary-custom:disabled {
+    background-color: rgba(222, 226, 230, 0.5);
+    color: rgba(33, 37, 41, 0.5);
+    border-color: rgb(222, 226, 230, 0.5);
+}
+
+
+.dropdown-item:focus, 
+.dropdown-item:active, 
+.dropdown-item:focus:active {
+    box-shadow: none;
+    color: inherit;
+    background-color: transparent;
+}
+
+.bg-custom {
+    --bs-bg-opacity: 1;
+    background-color: white !important;
+    }
+
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.description-col {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

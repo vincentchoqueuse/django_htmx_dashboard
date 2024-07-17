@@ -1,0 +1,21 @@
+{% load custom_tags %}
+
+<div class="modal-header">
+    <h5 class="modal-title">{{verbose_name}} {{ object }}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    {% for field in fields %}
+    <div class="row py-2">
+        <div class="col-md-4">
+            <label class="fw-bold">{{ field }}</label>
+        </div>
+        <div class="col-md-8">
+            <span>{{ object|get_field_value:field }}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary-custom" data-bs-dismiss="modal">Close</button>
+</div>

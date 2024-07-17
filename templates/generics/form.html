@@ -1,0 +1,17 @@
+{% load crispy_forms_tags %}
+
+<form hx-post="{{ request.path }}">
+    <div class="modal-header">
+        <h5 class="modal-title">{% if object.pk %}Edit{% else %}Create{% endif %} {{verbose_name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        {% csrf_token %}
+        {{ form | crispy }}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary-custom" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-custom">{% if object.pk %}Update{% else %}Create{% endif %}</button>
+    </div>
+</form>
+

@@ -1,0 +1,38 @@
+<table class="table table-sm text-center w-100">
+    <thead>
+        <tr>
+            <th scope="col" class="text-start" style="width: 10%">#</th>
+            <th scope="col" style="width: 10%">First Name</th>
+            <th scope="col" style="width: 10%">Last Name</th>  
+            <th scope="col" style="width: 20%">Email</th>  
+            <th scope="col" style="width: 40%">Classroom</th>  
+            <th scope="col" class="text-end" style="width: 10%">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+        <tr class="align-middle fw-light" style="font-size: 0.9em">
+            <th class="text-start">{{object.id}}</th>
+            <td>{{object.first_name}}</td>
+            <td>{{object.last_name}}</td>
+            <td>{{object.email}}</td>
+            <td>{{object.classroom}}</td>
+            <td class="text-end">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-secondary-custom dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" hx-get="{% url 'teacher-detail' object.pk %}" hx-target="#modal-content">View</a></li>
+                        <li><a class="dropdown-item" href="#" hx-get="{% url 'teacher-update' object.pk %}" hx-target="#modal-content">Update</a></li>
+                        <li><a class="dropdown-item" href="#" hx-get="{% url 'teacher-delete' object.pk %}" hx-target="#modal-content">Delete</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'generics/pagination.html' with page_obj=page_obj %}
